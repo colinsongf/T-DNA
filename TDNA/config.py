@@ -55,10 +55,17 @@ if _has_sklearn:
 
 
 class InputExample:
-    guid: str
-    text_a: str
-    text_b: Optional[str] = None
-    label: Optional[str] = None
+    def __init__(
+        self,
+        guid: str,
+        text_a: str,
+        text_b: Optional[str] = None,
+        label: Optional[str] = None
+    ):
+        self.guid = guid
+        self.text_a = text_a
+        self.text_b = text_b
+        self.label = label
 
     def to_json_string(self):
         """Serializes this instance to a JSON string."""
